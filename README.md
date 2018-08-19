@@ -342,12 +342,32 @@
 
 #### 场景： 提交推送时有两个地址存放仓库（只是用于备份）推送时要提交到两个地方
 
-+ 此处操作步骤只是推送时要提交到两个地方
-+ step0:  执行命令  git pull  拉取最新仓库版本
-+ step1:  执行命令  git log --graph  ，查看分支合并图
-+ step2:  执行命令  git remote -v 查看远程库信息
-+ step3:  执行命令  git remote add <别名> <path> 关联一个新的远程库
-+ step4:  执行命令  git push -u <别名> master   提交到对应的远程库 (两个库如果有不相关会出现冲突，新增远程库最好是新的空库)
++ 方法一:
+    + 此处操作步骤只是推送时要提交到两个地方
+    + step0:  执行命令  git pull  拉取最新仓库版本
+    + step1:  执行命令  git log --graph  ，查看分支合并图
+    + step2:  执行命令  git remote -v 查看远程库信息
+    + step3:  执行命令  git remote add <别名> <path> 关联一个新的远程库
+    + step4:  执行命令  git push -u <别名> master   提交到对应的远程库 (两个库如果有不相关会出现冲突，新增远程库最好是新的空库)
+
++ 方法二:
+    + step1: 修改git项目里的.git的config
+        ~~~
+        [remote "origin"]
+            url = <远程仓库地址1 例  https://github.com/hongdada/learngit.git >
+            fetch = +refs/heads/*:refs/remotes/origin/*
+        [branch "master"]
+            remote = origin
+            merge = refs/heads/master
+        [remote "<远程仓库2别名>"]
+            url = <远程仓库地址2 例 https://github.com/xiexie1993/Git_Record.git >
+            fetch = +refs/heads/*:refs/remotes/<远程仓库2别名>/*
+        [remote "all"]  
+            url = <远程仓库地址1 例 https://github.com/hongdada/learngit.git >
+            url = <远程仓库地址2 例 https://github.com/xiexie1993/Git_Record.git>
+        ~~~
+    + step2:  下载各个仓库的最新版本，有冲突解决冲突
+    + step3:  执行命令 git push all --all 提交所有的远程仓库中
 
 #### 场景： 删除远程提交地址
 + step0:  执行命令  git remote -v 查看远程库信息

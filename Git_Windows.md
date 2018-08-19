@@ -17,3 +17,5 @@
 + [git status中文文件名编码问题解决](https://www.cnblogs.com/chen-cong/p/7679292.html)
 
 + [window下配置SSH连接GitHub、GitHub配置ssh key](https://www.cnblogs.com/hukai46/p/5489631.html)
+
++ [GIT中文乱码问题解决方案](https://blog.csdn.net/xl_lx/article/details/78223349)
