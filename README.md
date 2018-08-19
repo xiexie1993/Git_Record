@@ -347,12 +347,29 @@
 + step1:  执行命令  git log --graph  ，查看分支合并图
 + step2:  执行命令  git remote -v 查看远程库信息
 + step3:  执行命令  git remote add <别名> <path> 关联一个新的远程库
-+ step4:  执行命令  git push -u <别名> master   提交到对应的远程库
++ step4:  执行命令  git push -u <别名> master   提交到对应的远程库 (两个库如果有不相关会出现冲突，新增远程库最好是新的空库)
 
 #### 场景： 删除远程提交地址
 + step0:  执行命令  git remote -v 查看远程库信息
 + step1:  执行命令  git remote rm <别名> 移除现在有的远程服务器<别名>
 
+#### 场景： 合并两个远程库（不相关）
+
++ 方法一：
+    + step0:  down下第三方库；
+    + step1:  以本地git为源，添加到当前git的remote中；
+    + step2:  更新仓库，出现两个不同根的分支；
+    + step3:  git checkout 两个分支，本从新命名；
+    + step4:  使用gitbash, 执行 git merge remoteRepo master - -allow-unrelated-histories 进行合并；
+    + step5:  git push 到远程仓库(将remoteRepo 合并到master上)。
+
++ 方法二：
+    + step0:  down 下两个git仓库。
+    + step1:  将两个git仓库在本地checkout。
+    + step2:  若要将repo1 merge到repo2上，需要执行 git - -rebase repo2 repo1, 
+    + step3:  其意义为：将repo2 作为repo1的新基线。
+    + step4:  执行此操作，需要将当前branch设置为：repo2
+    + step5:  如下： repo1: svn_master,repo2:git_master
 
 ## 命令详解
 
@@ -473,3 +490,5 @@
 + [5 Git 基础 - 远程仓库的使用](https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8)
 
 + [Git 同时与多个远程库互相同步](https://www.cnblogs.com/hongdada/p/7573923.html)
+
++ [合并两个git仓库](https://blog.csdn.net/kasteluo/article/details/73330656?utm_source=itdadao&utm_medium=referral)
