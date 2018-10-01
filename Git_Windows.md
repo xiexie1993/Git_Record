@@ -10,6 +10,10 @@
     + 原因：  
     + 解决办法： 执行命令 git config --global core.quotepath false 将git配置变量 core.quotepath 设置为false，就可以解决中文文件名称在这些Git命令输出中的显示问题,
 
++ windows中git bash下中文乱码
+    + 原因：  
+    + 解决办法：（1）.在git bash下，右键出现下图，选择options；（2）选择"Text"；（3）将"Character set"设置为  zh_CN  UTF-8
+
 ## 参考资料
 
 + [git bash 命令行有中文乱码的解决](https://blog.csdn.net/a13835198325/article/details/76460875)
