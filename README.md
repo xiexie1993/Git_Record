@@ -147,7 +147,7 @@
 
     + 修改
         +  git commit --amend                                可以查看并修改到本地最后一次commit（没有提交的远程的）修改其注释信息和修改内容
-
+        +  git remote set-url origin  <url-addr>             通过命令直接修改远程地址
     + 其他
         +
         + git diff                                          对比改动
@@ -289,7 +289,28 @@
 + step1： 执行命令 git commit --amend ,执行完该命令会打开vim的编辑器界面，在默认打开的文件里，修改对应注释信息，保存（vim的使用）
 + setp2： 执行命令 git log 看是否注释信息已修改
 
+#### 场景：修改本地远程仓库地址
 
+> 以下均以项目git_test为例： 
+> 老地址：http://192.168.1.12:9797/john/git_test.git 
+> 新地址：http://192.168.100.235:9797/john/git_test.git 
+> 远程仓库名称： origin
+
++ 方法一：通过命令直接修改远程地址
+    + step1： 进入git_test根目录
+    + step2： git remote 查看所有远程仓库， git remote xxx 查看指定远程仓库地址
+    + step3： git remote set-url origin http://192.168.100.235:9797/john/git_test.git
+
++ 方法二：通过命令先删除再添加远程仓库
+    + step1： 进入git_test根目录
+    + step2： git remote                   查看所有远程仓库， git remote xxx 查看指定远程仓库地址
+    + step3： git remote rm origin         删除.git仓库的config文件里的origin仓库信息
+    + step4： git remote add origin http://192.168.100.235:9797/john/git_test.git  添加新仓库信息
+    + step5： git push --set-upstream origin master    推送时需要强制推送
+
++ 方法三 直接修改配置文件
+    + step1： 进入git_test/.git
+    + step2： 修改 [remote “origin”]下面的url即可
 
 #### 场景：修改已提交到远程的最后一版的注释信息
 
@@ -512,3 +533,5 @@
 + [Git 同时与多个远程库互相同步](https://www.cnblogs.com/hongdada/p/7573923.html)
 
 + [合并两个git仓库](https://blog.csdn.net/kasteluo/article/details/73330656?utm_source=itdadao&utm_medium=referral)
+
++ [Git远程仓库地址变更本地如何修改]（https://blog.csdn.net/asdfsfsdgdfgh/article/details/54981823）
