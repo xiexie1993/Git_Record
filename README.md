@@ -13,7 +13,12 @@
 
 ### Andriod手机
 
-+ 软件：Gidder、Pocket Git
++ 软件：Gidder、Pocket Git、 QuickEdit或者Jota+
+
+### iPhone手机
+
++ 软件：TIG
+
 
 
 

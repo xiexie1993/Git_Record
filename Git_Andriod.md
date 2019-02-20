@@ -2,10 +2,13 @@
 
 ## Andriod下搭建 Git服务
 
-### Andriod 7 安装 Git
+### Andriod 安装 Git
 
-+ 1、下载软件包Gidder安装
 
+
++ 1、下载软件包Gidder安装 （Gidder是一个提供git服务，可用于创建git项目，充当git服务）
+    下载软件包Pocket Git 安装 （Pocket Git 是一个提供git客户端，可用于充当克隆和提交）
+    下载软件包 QuickEdit或者Jota+ 安装 (文本编辑器)
 
 + 2、连接同一个网络
     + 在Gidder上设置开启应用设置基本参数（端口、用户名、密码、和相应权限）
